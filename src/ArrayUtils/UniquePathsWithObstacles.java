@@ -3,10 +3,11 @@ package ArrayUtils;
 public class UniquePathsWithObstacles {
 
 	public static void main(String[] args) {
-		System.out.println(uniquePathsWithObstacles(new int[][] { { 0, 0, 0 },{ 0, 0, 1 } ,{ 0, 0, 1 }  }));
+		System.out.println(uniquePathsWithObstacles(new int[][] { { 0, 0, 0 },
+			                                                      { 0, 0, 1 },
+			                                                      { 0, 0, 1 }  }));
 
 	}
-
 	public static int uniquePathsWithObstacles(int[][] obstacleGrid) {  // 理解错题了 1 不是 目的地 而是 障碍物
 		int[][] dp = new int[obstacleGrid.length][obstacleGrid[0].length];
 		dp[0][0] = 1;

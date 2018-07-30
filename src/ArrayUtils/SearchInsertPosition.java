@@ -6,7 +6,7 @@ public class SearchInsertPosition {
 	 */
 	public static void main(String[] args) {
 		System.out.println(searchInsertPosition(new int[] { 1,4,5,6,7,8,8,8,8,9 },9));
-
+ 
 	}
   // 直接采用顺序遍历注意边界值
 	private static int searchInsertPosition(int[] nums,int target) {

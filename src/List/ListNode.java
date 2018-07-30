@@ -6,7 +6,7 @@ public class ListNode {
      public ListNode(int x) { val = x; }
      public ListNode() {
 		
-	}
+	} 
 	public int getData() {
  		return val;
  	}

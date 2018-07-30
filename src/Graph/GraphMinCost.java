@@ -6,7 +6,7 @@ public class GraphMinCost {
 		int[][][] graph = new int[nodecont][nodecont][2];  // 定义了一个邻接矩阵
 		//初始化矩阵
 		for(int i=1;i<= nodecont;i++) {
-			
+		
 		}
 		graph[1][2][0] = graph[2][1][0] = 2;
 		graph[1][2][1] = graph[2][1][1] = 3;

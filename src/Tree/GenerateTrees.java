@@ -8,7 +8,7 @@ public class GenerateTrees {
 	public static void main(String[] args) {
 		List<TreeNode> Result = generateTrees(3);
 		for (TreeNode res : Result) {
-			res.Inorder(res);
+			//res.Inorder(res);
 			System.out.println();
 		}
 

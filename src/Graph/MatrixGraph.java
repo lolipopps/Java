@@ -85,6 +85,27 @@ public class MatrixGraph {
 
 	}
 
+	
+	public void Rdfs() {
+		vertexList[0].visited = true;
+		displayVertex(0);
+		theStack.push(0);
+		while (!theStack.isEmpty()) {
+			int v = getUnvisitedVertex((int) theStack.peek());
+			if (v == -1) {
+				theStack.pop();
+			} else {
+				vertexList[v].visited = true;
+				displayVertex(v);
+				theStack.push(v);
+			}
+		}
+		for (int j = 0; j < vertexCount; j++) {
+			vertexList[j].visited = false;
+		}
+
+	}
+	
 	public void bfs() {
 		vertexList[0].visited = true;
 		displayVertex(0);

@@ -19,6 +19,7 @@ public class LinkGraph {
 			this.way = way;
 			this.nextEdge = null;
 		}
+		
 	}
 	public LinkGraph(int nodeCount) {
 		this.nodeCount = nodeCount;
