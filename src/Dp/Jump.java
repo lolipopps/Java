@@ -3,8 +3,8 @@ package Dp;
 public class Jump {
 
 	public static void main(String[] args) {
-		System.out.println(JumpFloor(5));
-		System.out.println(JumpFloorII(3));
+		System.out.println(JumpFloor(6));
+		System.out.println(JumpFloorII(6));
 
 	}
 	public static int JumpFloor(int target) {
@@ -35,7 +35,10 @@ public class Jump {
 		dp[1] = 1;
 		dp[2] = 2;
 		for(int i=3;i<=target;i++) {
-			for(int j=1;j<i;j++) {
+			for(int j=i-6;j<i;j++) {
+				if(j<0) {
+					continue;
+				}
 				dp[i] += dp[j];
 			}
 			dp[i] = dp[i] +1;

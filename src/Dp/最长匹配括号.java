@@ -7,7 +7,7 @@ package Dp;
 
    Another example is ")()())", where the longest valid parentheses substring is "()()", which has length = 4. 
  */
-public class longestValidParentheses {
+public class 最长匹配括号 {
 	public static void main(String[] args) {
 		String string = "()()(())())";
 		int a = longestValidParentheses1(string);

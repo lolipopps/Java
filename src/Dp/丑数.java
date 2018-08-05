@@ -1,6 +1,6 @@
 package Dp;
 
-public class nthUglyNumber {
+public class 丑数 {
 
 	public static void main(String[] args) {
 		nthUglyNumber1(10);

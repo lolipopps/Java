@@ -6,13 +6,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class 所有字符串子集 {
 
 	public static void main(String[] args) {
-		List<List<Integer>> result = subsets1(new int[] { 1, 2, 3 });
+		List<List<Integer>> result = subsets1(new int[] { 1, 2, 3 ,2});
 		for (List<Integer> i : result) {
 			for (Integer num : i) {
 				System.out.print(num);

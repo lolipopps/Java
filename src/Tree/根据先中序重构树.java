@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ReConstructBinaryTree {
+public class 根据先中序重构树 {
 	public static void main(String[] args) {
 		TreeNode tree = reConstructBinaryTree(new int[] { 1, 2, 4, 7, 3, 5, 6, 8 },
 				new int[] { 4, 7, 2, 1, 5, 3, 8, 6 });

@@ -1,7 +1,7 @@
 package DFS;
 
 
-public class NumIslands {
+public class 孤岛问题 {
 	public static void main(String[] args) {
 		int[][] num = new int[][] {
 			{1,1,1,1,0},

@@ -91,5 +91,10 @@ public class 青蛙跳 {
 		}
 		return sc;
 	}
+	public static int dafu(int n) {
+	
+		int result = 0;
+		return result;
+	}
 
 }

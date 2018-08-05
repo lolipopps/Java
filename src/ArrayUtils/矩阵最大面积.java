@@ -17,6 +17,7 @@ public class 矩阵最大面积 {
 //		int[] num = new int[] { 2, 0 };
 //		System.out.println(maxArea(num));
 		maxRectangle(new int[] {2,1,5,6,2,3,2,2,2,2,2});
+		System.out.println(largestRectangleArea(new int[] {1,2,3,4,5}));
 
 	}
 	
@@ -54,31 +55,7 @@ public class 矩阵最大面积 {
 		return result;
 	}
 
-	/*
-	 * 进行两次扫描，一次从左往右，一次从右往左。第一次扫描的时候维护对于每一个bar左边最大的高度是多少，存入数组对应元素中，
-	 * 第二次扫描的时候维护右边最大的高度，并且比较将左边和右边小的最大高度（我们成为瓶颈）存入数组对应元素中。
-	 * 
-	 * 这个方法算是一种常见的技巧，从两边各扫描一次得到我们需要维护的变量， 通常适用于当前元素需要两边元素来决定的问题。 一个地方能装多少水 和
-	 * 它左边最高和右边最高的地方有关
-	 */
-	public static int maxTrap(int[] num) {
-		int begin = 0;
-		int max = 0;
-		int result = 0;
-		int[] contain = new int[num.length];
-		contain[0] = 0;
-		for (int i = 0; i < num.length - 1; i++) { // 找到左边最大的
-			contain[i] = max;
-			max = Math.max(num[i], max);
-		}
-		max = 0;
-		for (int i = num.length - 1; i >= 0; i--) {
-			contain[i] = Math.min(max, contain[i]); // 得到左边和右边的最小的
-			max = Math.max(max, num[i]); // 找到右边最大的
-			result += contain[i] - num[i] > 0 ? contain[i] - num[i] : 0;
-		}
-		return result;
-	}
+	
 
 	public static int maxTrap1(int[] num) {
 		int begin = 0;
@@ -105,6 +82,45 @@ public class 矩阵最大面积 {
 		}
 		return result;
 	}
+	
+	public static int largestRectangleArea(int[] height) {  
+		// 找到一维数组里面构成的最大面积 思想是从第一个开始遍历 
+		// 如果发现当前的高度比下一个要低证明当前的肯定不是最大面积 循环继续 否则有可能出现新的最大的面积 
+		//出现下降是需要计算最大面积不然可能错过
+        int res = 0;
+        for (int i = 0; i < height.length; ++i) {
+            if (i + 1 < height.length && height[i] <= height[i + 1]) {
+                continue;
+            }
+            int minH = height[i];
+            // 满足条件之后依次往回循环找到最大的面积
+            for (int j = i; j >= 0; --j) {
+                minH = Math.min(minH, height[j]);
+                int area = minH * (i - j + 1);
+                res = Math.max(res, area);
+            }
+        }
+        return res;
+    }
+	
+	
+	 int largestRectangleArea2(int[]  height) {
+	        int res = 0;
+	        Stack<Integer> st = new Stack<Integer>();
+	        //height.push_back(0);
+	        for (int i = 0; i < height.length; ++i) {
+	            if (st.empty() || height[st.peek()] < height[i]) {
+	                st.push(i);
+	            } else {
+	                int cur = st.peek(); st.pop();
+	                res = Math.max(res, height[cur] * (st.empty() ? i : (i - st.peek() - 1)));
+	                --i;
+	            }     
+	        }
+	        return res;
+	    }
+	
+	
 // 和水滴的概念一样。通过一次遍历获取某个位置的左边最大值 和 右边最大值 然后把求得的值存起来就可以了  
 // 找出里面最大的  当这个值是比较大的时候存的并不是结果    2 1 5 6 2 3
 	public static int maxRectangle(int[] num) {
@@ -131,7 +147,7 @@ public class 矩阵最大面积 {
 		            --i; // 使得出栈的时候不会动
 		        }
 		    }
-		
+		System.out.println(result);
 		return result;
 	}
 	   

@@ -18,26 +18,28 @@ public class MultiPortEcho
   }
 
   private void go() throws IOException {
-    // Create a new selector
+    // 创建一个 selector 实例
     Selector selector = Selector.open();
 
     // Open a listener on each port, and register each one
     // with the selector
     for (int i=0; i<ports.length; ++i) {
+    	// 注册一个channel
       ServerSocketChannel ssc = ServerSocketChannel.open();
       ssc.configureBlocking( false );
       ServerSocket ss = ssc.socket();
+      // 绑定一个端口 
       InetSocketAddress address = new InetSocketAddress( ports[i] );
       ss.bind( address );
-
+     // 注册一个事件 监听自己感兴趣事件
       SelectionKey key = ssc.register( selector, SelectionKey.OP_ACCEPT );
 
       System.out.println( "Going to listen on "+ports[i] );
     }
-
+    // 重复执行 
     while (true) {
       int num = selector.select();
-
+      // 调用一种 select 方法
       Set selectedKeys = selector.selectedKeys();
       Iterator it = selectedKeys.iterator();
 
@@ -79,7 +81,7 @@ public class MultiPortEcho
           }
 
           System.out.println( "Echoed "+bytesEchoed+" from "+sc );
-
+   //
           it.remove();
         }
 
